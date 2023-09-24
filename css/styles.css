@@ -10839,9 +10839,9 @@ section {
 }
 
 h2 {
-  font-size: 36px; /* Tamaño de fuente del título */
+  font-size: 36px;
   margin-bottom: 20px;
-  color: #343a40; /* Color del texto del título */
+  color: #343a40;
   text-align: left;
 }
 
@@ -10851,7 +10851,6 @@ h2 {
 
 /* CLASIFICACION */
 
-/* Estilos generales de la tarjeta de clasificación */
 .card-clasi {
   background-color: #f8f8f8;
   border: 1px solid #ddd;
@@ -10877,10 +10876,6 @@ h2 {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-
-
-
-
 #lista-pilotos,
 #lista-constructores {
     list-style: none;
@@ -10895,7 +10890,7 @@ h2 {
     padding: 10px 20px;
     border-bottom: 1px solid #ccc;
     font-weight: bold;
-    transition: background-color 0.3s; /* Agrega una transición suave al color de fondo */
+    transition: background-color 0.3s;
 }
 
 #lista-pilotos li:nth-child(2n),
@@ -10911,7 +10906,7 @@ h2 {
 
 #lista-pilotos li:hover,
 #lista-constructores li:hover {
-    background-color: #f3f3f3; /* Cambia el color de fondo al pasar el cursor sobre las filas */
+    background-color: #f3f3f3;
 }
 
 #lista-pilotos li:first-child:hover,
@@ -10938,12 +10933,6 @@ h2 {
     padding-left: 20px;
 }
 
-
-
-
-
-
-/* Estilos para el contenido de la clasificación */
 .lista {
   margin-top: 20px;
   padding: 0;
@@ -10962,22 +10951,24 @@ h2 {
   border-bottom: none;
 }
 
-/* Cambia el fondo al pasar el ratón por encima */
-.list-group-item:hover {
-  background-color: #f5f5f5; /* Color de fondo al pasar el ratón */
-}
-
-/* Estilos específicos para la clasificación de pilotos */
 #lista-pilotos {
   display: block;
 }
 
-/* Estilos específicos para la clasificación de constructores */
 #lista-constructores {
   display: none;
 }
 
 /* ADIVINA PILOTO */
+.card {
+    width: 90%;
+    max-width: 470px;
+    color: #fff;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+  }
 
 .img-piloto {
   max-width: 100%;
@@ -11007,7 +10998,7 @@ h2 {
 .col-piloto {
   flex: 1;
   text-align: center;
-  margin: 10px; /* Añade margen para separar las columnas */
+  margin: 10px;
 }
 
 .detalle-label-piloto {
@@ -11016,7 +11007,7 @@ h2 {
 
 .estadisticas-piloto {
   display: block;
-  margin-top: 5px; /* Ajusta el margen según tu preferencia */
+  margin-top: 5px;
 }
 
 .mensaje {
@@ -11040,27 +11031,17 @@ h2 {
 }
 
 .informacion {
-  font-size: 24px; /* Tamaño de fuente del contador */
+  font-size: 24px;
   font-weight: bold;
-  color: #343a40; /* Color del contador */
+  color: #343a40;
   margin-bottom: 30px;
 }
 
 .cuentaatras {
-  font-size: 24px; /* Tamaño de fuente del contador */
+  font-size: 24px;
   font-weight: bold;
-  color: #dc3545; /* Color del contador */
+  color: #dc3545;
   margin-bottom: 30px;
-}
-
-.card {
-  width: 90%;
-  max-width: 470px;
-  color: #fff;
-  margin: 100px auto 0;
-  border-radius: 20px;
-  padding: 40px 35px;
-  text-align: center;
 }
 
 .weather-icon {
@@ -11086,13 +11067,13 @@ h2 {
   margin-top: 50px;
 }
 
-.col {
+.col-clima {
   display: flex;
   align-items: center;
   text-align: left;
 }
 
-.col img {
+.col-clima img {
   width: 40px;
   margin-right: 10px;
 }

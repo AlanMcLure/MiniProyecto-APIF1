@@ -31,6 +31,8 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // COMIENZA CÓDIGO
+    // CLASIFICACIÓN
     let listaPilotos = document.getElementById("lista-pilotos");
     let listaConstructores = document.getElementById("lista-constructores");
     let btnPilotos = document.getElementById("btn-pilotos");
@@ -43,7 +45,6 @@ window.addEventListener('DOMContentLoaded', event => {
         btnPilotos.classList.add("active");
         btnConstructores.classList.remove("active");
 
-        // Race schedule
         fetch('https://ergast.com/api/f1/current/driverStandings.json')
             .then(response => response.json())
             .then(data => {
@@ -64,7 +65,6 @@ window.addEventListener('DOMContentLoaded', event => {
         btnPilotos.classList.remove("active");
         btnConstructores.classList.add("active");
 
-        // Constructor standings
         fetch('http://ergast.com/api/f1/current/constructorStandings.json')
             .then(response => response.json())
             .then(data => {
@@ -86,13 +86,12 @@ window.addEventListener('DOMContentLoaded', event => {
     mostrarClasificacionPilotos();
 
 
-
     // ADIVINA PILOTO
-    let elementoImagen = document.getElementById('piloto-icon');
-
     // Hago esto para poder acceder a sus estadísticas avanzadas desde otra api y no tengo otra manera de conseguir los nombres
     const drivers = ['max-verstappen', 'sergio-perez', 'lewis-hamilton', 'fernando-alonso', 'carlos-sainz', 'charles-leclerc', 'lando-norris', 'george-russell', 'oscar-piastri', 'lance-stroll', 'pierre-gasly', 'esteban-ocon', 'alexander-albon', 'nico-hulkenberg', 'valteri-bottas', 'guanyu-zhou', 'yuki-tsunoda', 'kevin-magnussen', 'liam-lawson', 'logan-sargeant', 'daniel-ricciardo'];
-    let pilotoActual = null; // El piloto actual para adivinar
+
+    let elementoImagen = document.getElementById('piloto-icon');
+    let pilotoActual = null;
     let imagenPiloto = null;
 
     // Función para seleccionar un piloto aleatorio
@@ -152,7 +151,6 @@ window.addEventListener('DOMContentLoaded', event => {
     selectRandomDriver();
 
 
-
     // FECHA PROXIMA CARRERA
     const fechaActual = new Date();
 
@@ -169,22 +167,18 @@ window.addEventListener('DOMContentLoaded', event => {
     let ciudadProximaCarrera = document.getElementById('ciudad');
     let paisProximaCarrera = document.getElementById('pais');
 
+    // función para actualizar la cuenta regresiva
     function actualizarCuentaRegresiva() {
         if (fechaProximaCarrera) {
-            // Calcula la diferencia en milisegundos entre la fecha actual y la fecha de la próxima carrera.
             const fechaActual = new Date();
             const fechaProxima = new Date(fechaProximaCarrera);
             const diferencia = fechaProxima - fechaActual;
 
-            // Verifica si la fecha de la próxima carrera ya ha pasado.
-
-            // Calcula los días, las horas, los minutos y los segundos restantes.
             const segundosRestantes = Math.floor((diferencia / 1000) % 60);
             const minutosRestantes = Math.floor((diferencia / (1000 * 60)) % 60);
             const horasRestantes = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
             const diasRestantes = Math.floor(diferencia / (1000 * 60 * 60 * 24));
 
-            // Actualiza los elementos HTML con los valores calculados.
             diasProximaCarrera.textContent = diasRestantes;
             horasProximaCarrera.textContent = horasRestantes;
             minutosProximaCarrera.textContent = minutosRestantes;
@@ -196,7 +190,7 @@ window.addEventListener('DOMContentLoaded', event => {
         }
     }
 
-    // Race schedule
+    // Calendario de carreras
     fetch('https://ergast.com/api/f1/current.json')
         .then(response => response.json())
         .then(data => {
@@ -213,7 +207,6 @@ window.addEventListener('DOMContentLoaded', event => {
             checkClima(ciudad);
             setInterval(actualizarCuentaRegresiva, 1000);
         });
-
 
 
     // PARTE DE LA API DEL CLIMA
