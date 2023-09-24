@@ -10877,6 +10877,72 @@ h2 {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+
+
+
+
+#lista-pilotos,
+#lista-constructores {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-pilotos li,
+#lista-constructores li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    transition: background-color 0.3s; /* Agrega una transición suave al color de fondo */
+}
+
+#lista-pilotos li:nth-child(2n),
+#lista-constructores li:nth-child(2n) {
+    background-color: #e1e1e1;
+}
+
+#lista-pilotos li:first-child,
+#lista-constructores li:first-child {
+    background-color: #333;
+    color: #fff;
+}
+
+#lista-pilotos li:hover,
+#lista-constructores li:hover {
+    background-color: #f3f3f3; /* Cambia el color de fondo al pasar el cursor sobre las filas */
+}
+
+#lista-pilotos li:first-child:hover,
+#lista-constructores li:first-child:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+#lista-pilotos li span,
+#lista-constructores li span {
+    flex: 1;
+    text-align: center;
+}
+
+#lista-pilotos li:nth-child(1) span:first-child,
+#lista-constructores li:nth-child(1) span:first-child {
+    flex: 2;
+}
+
+#lista-pilotos li span:first-child,
+#lista-constructores li span:first-child {
+    flex: 2;
+    text-align: left;
+    padding-left: 20px;
+}
+
+
+
+
+
+
 /* Estilos para el contenido de la clasificación */
 .lista {
   margin-top: 20px;
@@ -10918,6 +10984,7 @@ h2 {
   max-height: 250px;
   height: auto;
   margin: 0 auto;
+  border-radius: 20px;
   display: block; 
 }
 
