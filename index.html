@@ -1,177 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 API</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <style>
-        /* Estilos para la tabla de clasificación de pilotos */
-        .lista {
-            list-style: none;
-            padding: 0;
-        }
-
-        .lista li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #f7f7f7;
-            border-bottom: 1px solid #ccc;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .lista li:hover {
-            padding: 11px 22px;
-        }
-
-        .lista li:nth-child(2n) {
-            background-color: #e1e1e1;
-        }
-
-        .lista li:first-child {
-            background-color: #333;
-            color: #fff;
-        }
-
-        .lista li span {
-            flex: 1;
-            text-align: center;
-        }
-
-        .lista li:nth-child(1) span:first-child {
-            flex: 2;
-        }
-
-        .lista li span:first-child {
-            flex: 2;
-            text-align: left;
-            padding-left: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#clasificacion">Clasificación</a>
-            <a class="navbar-brand" href="#calendario">Calendario</a>
-            <a class="navbar-brand" href="#clima">Clima</a>
-        </nav>
-        <main>
-            <h1 class="mb-4">Fórmula 1</h1>
-            <div class="column">
-                <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h2 class="mb-0" id="clasificacion">Clasificación</h2>
-                            <div class="btn-group" role="group" aria-label="Opciones de clasificación">
-                                <button type="button" class="btn " id="btn-pilotos">Pilotos</button>
-                                <button type="button" class="btn btn-primary" id="btn-constructores">Constructores</button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <ul id="lista-pilotos" class="list-group lista">
-                                <!-- Contenido de la clasificación de pilotos -->
-                            </ul>
-                            <ul id="lista-constructores" class="list-group lista" style="display: none;">
-                                <!-- Contenido de la clasificación de constructores -->
-                            </ul>
-                        </div>
-                    </div>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>F1-DATA</title>
+        <link rel="icon" type="image/x-icon" href="assets/f1-logo.png" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="#page-top">F1-DATA</a><img src="assets/f1-logo.png" class="img-logo">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#clasificacion">Clasificación</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#adivina-piloto">Ad. Piloto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#prox-carrera">Prox. Carrera</a></li>
+                    </ul>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-header" id="calendario">
-                            <h2 class="mb-0">Calendario de Carreras</h2>
-                        </div>
-                        <div class="card-body">
-                            <ul id="lista-calendario" class="list-group">
-                                <!-- Contenido del calendario de carreras -->
-                            </ul>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-danger bg-gradient text-white">
+            <div class="container px-4 text-center">
+                <h1 class="fw-bolder">Bienvenido a F1-DATA</h1>
+                <p class="lead">La web para ver los datos más importantes de la F1</p>
+                <a class="btn btn-lg btn-light" href="#prox-carrera">Próxima carrera!</a>
+            </div>
+        </header>
+        <!-- Clasificacion section-->
+        <section id="clasificacion">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Clasificación</h2>
+                        <div class="card-clasi">
+                            <div class="card-header">
+                                <div class="btn-group" role="group" aria-label="Opciones de clasificación">
+                                    <button type="button" class="btn btn-danger" id="btn-pilotos">Pilotos</button>
+                                    <button type="button" class="btn btn-danger" id="btn-constructores">Constructores</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul id="lista-pilotos" class="list-group lista">
+                                    <!-- Contenido de la clasificación de pilotos -->
+                                </ul>
+                                <ul id="lista-constructores" class="list-group lista" style="display: none;">
+                                    <!-- Contenido de la clasificación de constructores -->
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let listaCalendario = document.getElementById("lista-calendario");
-            let listaPilotos = document.getElementById("lista-pilotos");
-            let listaConstructores = document.getElementById("lista-constructores");
-            let pilotoseleccionado = document.getElementById("piloto-seleccionado");
-            let btnPilotos = document.getElementById("btn-pilotos");
-            let btnConstructores = document.getElementById("btn-constructores");
-            
-            // Race schedule
-            fetch('https://ergast.com/api/f1/current.json')
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    // Itera sobre las carreras y crea botones para cada una de ellas
-                    data.MRData.RaceTable.Races.forEach(elemento => {
-                        let botonCarrera = document.createElement("li");
-                        botonCarrera.textContent = `${elemento.round} ${elemento.Circuit.circuitName}`;
-                        botonCarrera.className = "list-group-item list-group-item-action";
-                        listaCalendario.appendChild(botonCarrera);
-                    });
-                });
-
-                // Función para mostrar la clasificación de pilotos
-                function mostrarClasificacionPilotos() {
-                    listaPilotos.style.display = "block";
-                    listaConstructores.style.display = "none";
-                    btnPilotos.classList.add("active");
-                    btnConstructores.classList.remove("active");
-                    
-                    // Race schedule
-                    fetch('https://ergast.com/api/f1/current/driverStandings.json')
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log(data);
-                            // Itera sobre los pilotos y crea elementos de lista para cada uno de ellos
-                            listaPilotos.innerHTML = ""; // Borra el contenido anterior
-                            data.MRData.StandingsTable.StandingsLists[0].DriverStandings.forEach(elemento => {
-                                let listItem = document.createElement("li");
-                                listItem.className = "list-group-item";
-                                listItem.textContent = `${elemento.position} ${elemento.Driver.givenName} ${elemento.Driver.familyName} - Puntos: ${elemento.points}`;
-                                listaPilotos.appendChild(listItem);
-                            });
-                        });
-                }
-
-                // Función para mostrar la clasificación de constructores
-                function mostrarClasificacionConstructores() {
-                    listaPilotos.style.display = "none";
-                    listaConstructores.style.display = "block";
-                    btnPilotos.classList.remove("active");
-                    btnConstructores.classList.add("active");
-
-                    // Constructor standings
-                    fetch('http://ergast.com/api/f1/current/constructorStandings.json')
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log(data);
-                            // Itera sobre los constructores y crea elementos de lista para cada uno de ellos
-                            listaConstructores.innerHTML = ""; // Borra el contenido anterior
-                            data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings.forEach(elemento => {
-                                let listItem = document.createElement("li");
-                                listItem.className = "list-group-item";
-                                listItem.textContent = `${elemento.position} ${elemento.Constructor.name} - Puntos: ${elemento.points}`;
-                                listaConstructores.appendChild(listItem);
-                            });
-                        });
-                }
-
-                // Manejar eventos de clic en los botones
-                btnPilotos.addEventListener("click", mostrarClasificacionPilotos);
-                btnConstructores.addEventListener("click", mostrarClasificacionConstructores);
-
-                // Mostrar por defecto la clasificación de pilotos
-                mostrarClasificacionPilotos();
-        })
-    </script>
-</body>
+        </section>
+        <!-- Adivina el piloto section-->
+        <section class="bg-light" id="adivina-piloto">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="mb-4">Adivina el piloto</h2>
+                        <p class="lead">¿Puedes adivinar al piloto según sus estadísticas?</p>
+                        <div class="card bg-danger bg-gradient text-white">
+                            <div class="piloto">
+                                <img src="assets/piloto-desconocido.png" alt="Piloto" id="piloto-icon" class="img-piloto">
+                                <p class="nom-piloto" id="nombre-piloto"></p>
+                                <div class="detalles-piloto">
+                                    <div class="col-piloto">
+                                        <p class="detalle-label-piloto">Nº Podios:</p>
+                                        <span class="estadisticas-piloto" id="podiums"></span>
+                                    </div>
+                                    <div class="col-piloto">
+                                        <p class="detalle-label-piloto">Nº Carreras:</p>
+                                        <span class="estadisticas-piloto" id="num-carreras"></span>
+                                    </div>
+                                    <div class="col-piloto">
+                                        <p class="detalle-label-piloto">País de nacimiento:</p>
+                                        <span class="estadisticas-piloto" id="nacionalidad"></span>
+                                    </div>
+                                    <div class="col-piloto">
+                                        <p class="detalle-label-piloto">Fecha de nacimiento:</p>
+                                        <span class="estadisticas-piloto" id="fecha-nacimiento"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mt-4">
+                            <input type="text" id="guessInput" class="form-control" placeholder="Escribe el nombre y apellido del piloto">
+                            <button id="guessButton" class="btn btn-danger">Adivinar</button>
+                        </div>
+                        <p id="mensaje" class="mt-2 mensaje"></p>
+                        <button id="resetButton" class="btn btn-danger mt-2">Prueba otro piloto</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Prox. Carrera section-->
+        <section id="prox-carrera">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Próxima carrera</h2>
+                        <div class="informacion">
+                            <p>La próxima carrera será en el circuito <span id="circuito">x</span>, situado en la ciudad <span id="ciudad">x</span>, <span id="pais">x</span>.</p>
+                        </div>
+                        <div class="cuentaatras">
+                            <p>Faltan <span id="dias">X</span> días, <span id="horas">X</span> horas, <span id="minutos">X</span> minutos y <span id="segundos">x</span> segundos para la próxima carrera.</p>
+                        </div>
+                        <div class="card bg-danger bg-gradient text-white">
+                            <div class="weather">
+                                <img src="assets/rain.png" alt="Clima" class="weather-icon">
+                                <p class="temp">22°</p>
+                                <p class="city">New York</p>
+                                <div class="detalles">
+                                    <div class="col">
+                                        <img src="assets/humidity.png" alt="Humedad">
+                                        <div>
+                                            <p class="humidity">50%</p>
+                                            <p>Humedad</p>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <img src="assets/wind.png" alt="Viento">
+                                        <div>
+                                            <p class="wind">15 km/h</p>
+                                            <p>Vel. Viento</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Alan McLure 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
